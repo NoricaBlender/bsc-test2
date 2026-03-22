@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voxel Buoyancy Demo</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="renderCanvas"></canvas>
+
+      <div id="hud" class="panel">
+        <div class="panel-header">
+          <h1>Voxel Buoyancy Demo</h1>
+          <p>Single-player Babylon.js + Vite prototype</p>
+        </div>
+
+        <div class="controls">
+          <button id="resetShipBtn" type="button">Reset ship</button>
+          <button id="addCargoBtn" type="button">Add cargo block</button>
+          <button id="removeCargoBtn" type="button">Remove cargo block</button>
+        </div>
+
+        <div class="toggles">
+          <label>
+            <input id="showSubmergedToggle" type="checkbox" checked />
+            Highlight submerged voxels
+          </label>
+          <label>
+            <input id="showComToggle" type="checkbox" checked />
+            Show centre of mass
+          </label>
+        </div>
+
+        <dl id="stats">
+          <div><dt>Total mass</dt><dd id="massValue">-</dd></div>
+          <div><dt>Voxel count</dt><dd id="voxelCountValue">-</dd></div>
+          <div><dt>Water level</dt><dd id="waterLevelValue">-</dd></div>
+          <div><dt>Centre of mass</dt><dd id="comValue">-</dd></div>
+          <div><dt>State</dt><dd id="stabilityValue">-</dd></div>
+          <div><dt>Cargo blocks</dt><dd id="cargoValue">-</dd></div>
+        </dl>
+
+        <div class="help">
+          <strong>Controls</strong>
+          <p>Mouse drag: orbit camera</p>
+          <p>Mouse wheel / pinch: zoom</p>
+          <p>R: reset ship</p>
+          <p>E: add cargo block</p>
+          <p>Q: remove cargo block</p>
+          <p>H: toggle submerged highlight</p>
+          <p>M: toggle centre of mass marker</p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

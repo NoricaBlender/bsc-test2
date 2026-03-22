@@ -1,0 +1,153 @@
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #c7ddf3;
+  color: #132033;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#renderCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  outline: none;
+}
+
+.panel {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: min(360px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(20, 32, 51, 0.12);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 12px 28px rgba(17, 31, 50, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+.panel-header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.panel-header p {
+  margin: 6px 0 0;
+  font-size: 0.92rem;
+  color: #47617e;
+}
+
+.controls,
+.toggles {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.controls {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #1f65d6;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+button:hover {
+  filter: brightness(1.04);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.toggles label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.94rem;
+}
+
+#stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0 0;
+}
+
+#stats div {
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(227, 236, 247, 0.95);
+}
+
+#stats dt {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #5d7088;
+}
+
+#stats dd {
+  margin: 6px 0 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.help {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(20, 32, 51, 0.12);
+}
+
+.help strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.help p {
+  margin: 5px 0;
+  font-size: 0.88rem;
+  color: #435a75;
+}
+
+@media (max-width: 740px) {
+  .panel {
+    top: auto;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-height: 48%;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  #stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
