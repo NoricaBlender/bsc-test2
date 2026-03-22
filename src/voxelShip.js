@@ -260,12 +260,16 @@ export class VoxelShip {
     }
   }
 
+  getWorldCenterOfMass() {
+    return this.root.position.clone();
+  }
+
   getStats() {
     return {
       totalMass: this.totalMass,
       totalVolume: this.totalVolume,
       voxelCount: this.voxels.length,
-      centerOfMassWorld: this.root.position.clone(),
+      centerOfMassWorld: this.getWorldCenterOfMass(),
       cargoCount: this.activeCargoCount
     };
   }

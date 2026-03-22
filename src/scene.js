@@ -10,14 +10,17 @@ export function createGame(engine, canvas) {
   const scene = new BABYLON.Scene(engine);
   scene.clearColor = new BABYLON.Color4(...CONFIG.visuals.skyColor);
 
+  const cameraTarget = new BABYLON.Vector3(0, 1.6, 0);
   const camera = new BABYLON.ArcRotateCamera(
     "orbitCamera",
     -Math.PI / 2,
     1.05,
     20,
-    new BABYLON.Vector3(0, 1.6, 0),
+    cameraTarget,
     scene
   );
+  scene.activeCamera = camera;
+  camera.setTarget(cameraTarget);
   camera.attachControl(canvas, true);
   camera.lowerRadiusLimit = 8;
   camera.upperRadiusLimit = 45;
@@ -107,7 +110,7 @@ export function createGame(engine, canvas) {
     buoyancy.update(dt);
     ship.updateVoxelDebugVisuals(submergedOverlayColor);
 
-    comMarker.position.copyFrom(ship.root.position);
+    comMarker.position.copyFrom(ship.getWorldCenterOfMass());
 
     ui.updateStats({
       shipStats: ship.getStats(),
